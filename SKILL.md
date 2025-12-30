@@ -1,153 +1,216 @@
 ---
 name: skillcreator
-version: 3.0.0
-description: >
-  Ultimate meta-skill for creating production-ready Claude Code skills. Uses deep
-  iterative analysis with 11 thinking models, regression questioning until exhausted,
-  evolution/timelessness as core lens, and multi-agent synthesis panel for unanimous
-  approval. Fully autonomous execution at maximum depth produces categorically the
-  best possible skills.
+description: "Ultimate meta-skill for creating production-ready Claude Code skills. Uses deep iterative analysis with 11 thinking models, regression questioning until exhausted, evolution and timelessness as core lens, and multi-agent synthesis panel for unanimous approval. Fully autonomous execution at maximum depth produces categorically the best possible skills."
 license: MIT
-model: claude-opus-4-5-20251101
-subagent_model: claude-opus-4-5-20251101
-domains: [meta-skill, automation, skill-creation, orchestration]
-type: orchestrator
-inputs: [user-goal, domain-hints]
-outputs: [SKILL.md, references/, SKILL_SPEC.md]
+metadata:
+  version: 3.1.0
+  model: claude-opus-4-5-20251101
+  subagent_model: claude-opus-4-5-20251101
+  domains: [meta-skill, automation, skill-creation, orchestration]
+  type: orchestrator
+  inputs: [user-goal, domain-hints]
+  outputs: [SKILL.md, references/, SKILL_SPEC.md]
 ---
 
-# SkillCreator 3.0 - Ultimate Meta-Skill
+# SkillCreator 3.1 - Ultimate Meta-Skill
 
-Create categorically the best possible Claude Code skills through exhaustive analysis,
-multi-lens evaluation, and multi-agent synthesis.
+Create categorically the best possible Claude Code skills.
 
-**Philosophy:** A skill that the audience would unanimously agree is the very best
-possible result they could have received.
+---
+
+## Quick Start
+
+Just tell me what skill you need:
+
+```
+SkillCreator: create a skill for automated code review
+```
+
+That's it. The skill will be created autonomously with full analysis, verification, and quality gates.
+
+---
 
 ## Triggers
 
-- \`SkillCreator: {goal}\` - Full autonomous skill creation
-- \`create skill\` / \`new skill\` - Natural language activation
-- \`design skill for {purpose}\` - Purpose-first creation
-- \`ultimate skill\` - Emphasize maximum quality
-- \`skillcreator --plan-only\` - Generate specification without execution
+- `SkillCreator: {goal}` - Full autonomous skill creation
+- `create skill` - Natural language activation
+- `design skill for {purpose}` - Purpose-first creation
+- `ultimate skill` - Emphasize maximum quality
+- `skillcreator --plan-only` - Generate specification without execution
 
-## Quick Reference
-
-| Input | Output | Duration | Quality Gate |
-|-------|--------|----------|--------------|
-| User goal | Production skill | 5-15 min | Unanimous 3/3 panel |
-| Domain hints (optional) | SKILL.md + references | Variable | Timelessness ≥7 |
-
-## Architecture Overview
-
-\`\`\`
-┌─────────────────────────────────────────────────────────────────────────┐
-│                       SKILLCREATOR 3.0                                   │
-│                    Ultimate Meta-Skill                                   │
-├─────────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  PHASE 1: DEEP ANALYSIS ──────────────────────────────────────────────  │
-│  │ Single Opus Agent • Iterative • Until Exhausted                      │
-│  │                                                                       │
-│  │  ┌──────────────┐   ┌────────────────┐   ┌─────────────────┐         │
-│  │  │ 1A: INPUT    │──▶│ 1B: MULTI-LENS │──▶│ 1C: REGRESSION  │──┐      │
-│  │  │ EXPANSION    │   │ ANALYSIS       │   │ QUESTIONING     │  │      │
-│  │  └──────────────┘   └────────────────┘   └─────────────────┘  │      │
-│  │        ▲                                                       │      │
-│  │        └───────────────────────────────────────────────────────┘      │
-│  │                    Loop until 3 empty rounds                          │
-│  │                                                                       │
-├──┼───────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  PHASE 2: SPECIFICATION GENERATION ────────────────────────────────────  │
-│  │ Meta-prompting pattern • XML-structured                               │
-│  │                                                                       │
-│  │  Analysis insights → Rigorous SKILL_SPEC.md                          │
-│  │  • Explicit WHY for all decisions                                    │
-│  │  • Measurable success criteria                                       │
-│  │  • Evolution/timelessness analysis                                   │
-│  │                                                                       │
-├──┼───────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  PHASE 3: SKILL GENERATION ────────────────────────────────────────────  │
-│  │ Fresh context • Zero error standard                                   │
-│  │                                                                       │
-│  │  Execute SKILL_SPEC.md with clean context                            │
-│  │  • Write SKILL.md                                                    │
-│  │  • Generate references/                                              │
-│  │  • Create assets/ if needed                                          │
-│  │                                                                       │
-├──┼───────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  PHASE 4: MULTI-AGENT SYNTHESIS ───────────────────────────────────────  │
-│  │ 3 Opus Agents • Parallel • Unanimous Required                         │
-│  │                                                                       │
-│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                   │
-│  │  │ DESIGN      │  │ AUDIENCE    │  │ EVOLUTION   │                   │
-│  │  │ Architecture│  │ Usability   │  │ Timelessness│                   │
-│  │  │ Correctness │  │ Clarity     │  │ Extensibility│                  │
-│  │  └─────────────┘  └─────────────┘  └─────────────┘                   │
-│  │         │               │               │                             │
-│  │         └───────────────┼───────────────┘                             │
-│  │                         ▼                                             │
-│  │                 ┌───────────────┐                                     │
-│  │                 │ UNANIMOUS 3/3 │                                     │
-│  │                 └───────────────┘                                     │
-│  │                    │         │                                        │
-│  │              Yes ──┘         └── No → Return to Phase 1               │
-│  │                │                                                      │
-│  │                ▼                                                      │
-│  │         ┌────────────┐                                                │
-│  │         │ FINALIZE   │                                                │
-│  │         └────────────┘                                                │
-│                                                                          │
-└─────────────────────────────────────────────────────────────────────────┘
-\`\`\`
+| Input | Output | Quality Gate |
+|-------|--------|--------------|
+| Your goal | Production-ready skill | Unanimous 3/3 panel approval |
 
 ---
 
-## Phase 1: Deep Analysis
+## Process Overview
 
-**Agent:** Single Opus 4.5 with extended thinking
-**Duration:** 3-7 analysis cycles
-**Goal:** Exhaust all analytical perspectives before designing
+```
+Your Request
+    │
+    ▼
+┌─────────────────────────────────────────────────────┐
+│ Phase 1: DEEP ANALYSIS                              │
+│ • Expand requirements (explicit, implicit, unknown) │
+│ • Apply 11 thinking models                          │
+│ • Question until no new insights (3 empty rounds)   │
+├─────────────────────────────────────────────────────┤
+│ Phase 2: SPECIFICATION                              │
+│ • Generate XML spec with all decisions + WHY        │
+│ • Validate timelessness score ≥ 7                   │
+├─────────────────────────────────────────────────────┤
+│ Phase 3: GENERATION                                 │
+│ • Write SKILL.md with fresh context                 │
+│ • Generate references/ and assets/                  │
+├─────────────────────────────────────────────────────┤
+│ Phase 4: SYNTHESIS PANEL                            │
+│ • 3 Opus agents review independently                │
+│ • All 3 must approve (unanimous)                    │
+│ • If rejected → loop back with feedback             │
+└─────────────────────────────────────────────────────┘
+    │
+    ▼
+Production-Ready Skill
+```
+
+**Key principles:**
+- Evolution/timelessness is the core lens (score ≥ 7 required)
+- Every decision includes WHY
+- Zero tolerance for errors
+- Autonomous execution at maximum depth
+
+---
+
+## Commands
+
+| Command | Action |
+|---------|--------|
+| `SkillCreator: {goal}` | Full autonomous execution |
+| `SkillCreator --plan-only {goal}` | Generate specification only |
+| `SkillCreator --quick {goal}` | Reduced depth (not recommended) |
+
+---
+
+## Validation & Packaging
+
+Before distribution, validate your skill:
+
+```bash
+# Quick validation (required for packaging)
+python scripts/quick_validate.py ~/.claude/skills/my-skill/
+
+# Full structural validation
+python scripts/validate-skill.py ~/.claude/skills/my-skill/
+
+# Package for distribution
+python scripts/package_skill.py ~/.claude/skills/my-skill/ ./dist
+```
+
+### Frontmatter Requirements
+
+Skills must use only these allowed frontmatter properties:
+
+| Property | Required | Description |
+|----------|----------|-------------|
+| `name` | Yes | Hyphen-case, max 64 chars |
+| `description` | Yes | Max 1024 chars, no angle brackets |
+| `license` | No | MIT, Apache-2.0, etc. |
+| `allowed-tools` | No | Restrict tool access |
+| `metadata` | No | Custom fields (version, model, etc.) |
+
+```yaml
+---
+name: my-skill
+description: What this skill does
+license: MIT
+metadata:
+  version: 1.0.0
+  model: claude-opus-4-5-20251101
+---
+```
+
+---
+
+## Skill Output Structure
+
+```
+~/.claude/skills/{skill-name}/
+├── SKILL.md                    # Main entry point (required)
+├── references/                 # Deep documentation (optional)
+│   ├── patterns.md
+│   └── examples.md
+├── assets/                     # Templates (optional)
+│   └── templates/
+└── scripts/                    # Validation tools (optional)
+```
+
+---
+
+## Anti-Patterns
+
+| Avoid | Why | Instead |
+|-------|-----|---------|
+| Duplicate skills | Bloats registry | Check existing first |
+| Single trigger | Hard to discover | 3-5 varied phrases |
+| No verification | Can't confirm success | Measurable outcomes |
+| Over-engineering | Complexity without value | Start simple |
+| Missing WHY | Can't evolve | Document rationale |
+| Invalid frontmatter | Can't package | Use allowed properties only |
+
+---
+
+## Verification Checklist
+
+After creation:
+
+- [ ] Frontmatter valid (only allowed properties)
+- [ ] Name is hyphen-case, ≤64 chars
+- [ ] Description ≤1024 chars, no `<` or `>`
+- [ ] 3-5 trigger phrases defined
+- [ ] Timelessness score ≥ 7
+- [ ] `python scripts/quick_validate.py` passes
+
+---
+
+<details>
+<summary><strong>Deep Dive: Phase 1 - Analysis</strong></summary>
 
 ### 1A: Input Expansion
 
 Transform user's goal into comprehensive requirements:
 
-\`\`\`
+```
 USER INPUT: "Create a skill for X"
                 │
                 ▼
-┌─────────────────────────────────────────────────────────────┐
-│ EXPLICIT REQUIREMENTS                                        │
-│ • What the user literally asked for                          │
-│ • Direct functionality stated                                │
-├─────────────────────────────────────────────────────────────┤
-│ IMPLICIT REQUIREMENTS                                        │
-│ • What they probably expect but didn't say                   │
-│ • Standard quality expectations                              │
-│ • Integration with existing patterns                         │
-├─────────────────────────────────────────────────────────────┤
-│ UNKNOWN UNKNOWNS                                             │
-│ • What they don't know they need                             │
-│ • Expert-level considerations they'd miss                    │
-│ • Future needs they haven't anticipated                      │
-├─────────────────────────────────────────────────────────────┤
-│ DOMAIN CONTEXT                                               │
-│ • Related skills that exist                                  │
-│ • Patterns from similar skills                               │
-│ • Lessons from skill failures                                │
-└─────────────────────────────────────────────────────────────┘
-\`\`\`
+┌─────────────────────────────────────────────────────────┐
+│ EXPLICIT REQUIREMENTS                                    │
+│ • What the user literally asked for                      │
+│ • Direct functionality stated                            │
+├─────────────────────────────────────────────────────────┤
+│ IMPLICIT REQUIREMENTS                                    │
+│ • What they probably expect but didn't say               │
+│ • Standard quality expectations                          │
+│ • Integration with existing patterns                     │
+├─────────────────────────────────────────────────────────┤
+│ UNKNOWN UNKNOWNS                                         │
+│ • What they don't know they need                         │
+│ • Expert-level considerations they'd miss                │
+│ • Future needs they haven't anticipated                  │
+├─────────────────────────────────────────────────────────┤
+│ DOMAIN CONTEXT                                           │
+│ • Related skills that exist                              │
+│ • Patterns from similar skills                           │
+│ • Lessons from skill failures                            │
+└─────────────────────────────────────────────────────────┘
+```
 
 **Check for overlap with existing skills:**
-\`\`\`bash
+```bash
 ls ~/.claude/skills/
 # Grep for similar triggers in existing SKILL.md files
-\`\`\`
+```
 
 | Match Score | Action |
 |-------------|--------|
@@ -181,7 +244,7 @@ See: [references/multi-lens-framework.md](references/multi-lens-framework.md)
 
 Iterative self-questioning until no new insights emerge:
 
-\`\`\`
+```
 ROUND N:
 │
 ├── "What am I missing?"
@@ -195,7 +258,7 @@ ROUND N:
         │
         ├── YES → Incorporate and loop
         └── NO → Check termination criteria
-\`\`\`
+```
 
 **Termination Criteria:**
 - Three consecutive rounds produce no new insights
@@ -203,25 +266,18 @@ ROUND N:
 - At least 3 simulated expert perspectives considered
 - Evolution/timelessness explicitly evaluated
 
-**Red Flags (restart questioning):**
-- Uncertainty language ("might", "possibly", "I think")
-- Missing justification for decisions
-- Timelessness score < 7
-
 See: [references/regression-questions.md](references/regression-questions.md)
 
----
+</details>
 
-## Phase 2: Specification Generation
-
-**Pattern:** Meta-prompting (separate analysis from execution)
-**Goal:** Produce rigorous specification that enables clean Phase 3 execution
+<details>
+<summary><strong>Deep Dive: Phase 2 - Specification</strong></summary>
 
 ### Specification Structure
 
 The specification captures all analysis insights in XML format:
 
-\`\`\`xml
+```xml
 <skill_specification>
   <metadata>
     <name>skill-name</name>
@@ -260,7 +316,7 @@ The specification captures all analysis insights in XML format:
     <criterion>Measurable + verification method</criterion>
   </success_criteria>
 </skill_specification>
-\`\`\`
+```
 
 See: [references/specification-template.md](references/specification-template.md)
 
@@ -274,30 +330,33 @@ Before proceeding to Phase 3:
 - [ ] At least 2 extension points documented
 - [ ] All requirements traceable to source
 
----
+</details>
 
-## Phase 3: Skill Generation
+<details>
+<summary><strong>Deep Dive: Phase 3 - Generation</strong></summary>
 
 **Context:** Fresh, clean (no analysis artifacts polluting)
 **Standard:** Zero errors—every section verified before proceeding
 
 ### Generation Order
 
-\`\`\`
+```
 1. Create directory structure
    mkdir -p ~/.claude/skills/{skill-name}/references
    mkdir -p ~/.claude/skills/{skill-name}/assets/templates
 
 2. Write SKILL.md
-   • Frontmatter (YAML)
+   • Frontmatter (YAML - allowed properties only)
    • Title and brief intro
+   • Quick Start section
    • Triggers (3-5 varied phrases)
    • Quick Reference table
-   • Process (phases/steps)
+   • How It Works overview
+   • Commands
+   • Validation section
    • Anti-Patterns
    • Verification criteria
-   • Evolution/Extension Points
-   • References
+   • Deep Dive sections (in <details> tags)
 
 3. Generate reference documents (if needed)
    • Deep documentation for complex topics
@@ -307,22 +366,25 @@ Before proceeding to Phase 3:
 4. Create assets (if needed)
    • Templates for skill outputs
    • Validation scripts
-\`\`\`
+```
 
 ### Quality Checks During Generation
 
 | Check | Requirement |
 |-------|-------------|
-| Frontmatter | name, version, description, license, model |
+| Frontmatter | Only allowed properties (name, description, license, allowed-tools, metadata) |
+| Name | Hyphen-case, ≤64 chars |
+| Description | ≤1024 chars, no angle brackets |
 | Triggers | 3-5 distinct, natural language |
 | Phases | 1-3 max, not over-engineered |
 | Verification | Concrete, measurable |
 | Tables over prose | Structured information in tables |
 | No placeholder text | Every section fully written |
 
----
+</details>
 
-## Phase 4: Multi-Agent Synthesis
+<details>
+<summary><strong>Deep Dive: Phase 4 - Multi-Agent Synthesis</strong></summary>
 
 **Panel:** 3 Opus agents with distinct evaluative lenses
 **Requirement:** Unanimous 3/3 approval
@@ -340,7 +402,7 @@ Before proceeding to Phase 3:
 
 Each agent produces:
 
-\`\`\`markdown
+```markdown
 ## [Agent] Review
 
 ### Verdict: APPROVED / CHANGES_REQUIRED
@@ -358,11 +420,11 @@ Each agent produces:
 
 ### Recommendations
 1. [Even if approved]
-\`\`\`
+```
 
 ### Consensus Protocol
 
-\`\`\`
+```
 IF all 3 agents APPROVED:
     → Finalize skill
     → Update registry
@@ -379,13 +441,14 @@ IF 5 iterations without consensus:
     → Flag for human review
     → Present all agent perspectives
     → User makes final decision
-\`\`\`
+```
 
 See: [references/synthesis-protocol.md](references/synthesis-protocol.md)
 
----
+</details>
 
-## Evolution/Timelessness Core Lens
+<details>
+<summary><strong>Deep Dive: Evolution/Timelessness</strong></summary>
 
 Every skill is evaluated through the evolution lens:
 
@@ -421,9 +484,10 @@ Every skill is evaluated through the evolution lens:
 
 See: [references/evolution-scoring.md](references/evolution-scoring.md)
 
----
+</details>
 
-## Architecture Pattern Selection
+<details>
+<summary><strong>Architecture Pattern Selection</strong></summary>
 
 Select based on task complexity:
 
@@ -439,7 +503,7 @@ Select based on task complexity:
 
 ### Selection Decision Tree
 
-\`\`\`
+```
 Is it a simple procedure?
 ├── Yes → Single-Phase
 └── No → Does it produce artifacts?
@@ -449,116 +513,14 @@ Is it a simple procedure?
         └── No → Are subtasks independent?
             ├── Yes → Multi-Agent Parallel
             └── No → Multi-Agent Sequential or Multi-Phase
-\`\`\`
+```
 
----
+</details>
 
-## Skill Directory Structure
+<details>
+<summary><strong>Configuration</strong></summary>
 
-\`\`\`
-~/.claude/skills/{skill-name}/
-├── SKILL.md                    # Main entry point (required)
-├── references/                 # Deep documentation (optional)
-│   ├── patterns.md
-│   ├── examples.md
-│   └── configuration.md
-├── assets/                     # Templates, checklists (optional)
-│   └── templates/
-└── scripts/                    # Validation tools (optional)
-\`\`\`
-
----
-
-## Required SKILL.md Elements
-
-| Element | Purpose | Requirement |
-|---------|---------|-------------|
-| Frontmatter | Metadata | name, version, description, license, model |
-| Title | Skill name | H1 with descriptive title |
-| Triggers | Activation phrases | 3-5 distinct, natural language |
-| Quick Reference | Summary table | Input, output, key info |
-| Process | Execution steps | Numbered phases or tables |
-| Anti-Patterns | What to avoid | With WHY and alternative |
-| Verification | Success criteria | Concrete, measurable |
-| Evolution | Extension points | At least 2 documented |
-
-### Frontmatter Template
-
-\`\`\`yaml
----
-name: skill-name
-version: 1.0.0
-description: >
-  One-paragraph description of what this skill does, when to use it,
-  and what it produces. Be specific about inputs and outputs.
-license: MIT
-model: claude-opus-4-5-20251101
----
-\`\`\`
-
----
-
-## Anti-Patterns
-
-| Avoid | Why | Instead |
-|-------|-----|---------|
-| Creating duplicate skills | Bloats registry, confuses | Check existing first |
-| Single trigger phrase | Hard to discover | Use 3-5 varied phrases |
-| No verification criteria | Can't confirm success | Define measurable outcomes |
-| Over-engineering | Complexity without value | Start simple, iterate |
-| Vague descriptions | Doesn't help selection | Be specific about purpose |
-| Prose walls | Hard to scan | Use tables and lists |
-| Missing WHY | Can't evolve or maintain | Document rationale |
-| Hardcoded dependencies | Obsolescence risk | Abstract and configure |
-| No extension points | Can't grow | Design for evolution |
-| Premature termination | Suboptimal result | Question until exhausted |
-
----
-
-## Verification Checklist
-
-After skill creation:
-
-### Structural
-- [ ] SKILL.md has valid frontmatter
-- [ ] 3-5 trigger phrases defined
-- [ ] Process/phases documented
-- [ ] Verification criteria included
-- [ ] Anti-patterns section present
-
-### Content
-- [ ] No placeholder text
-- [ ] All decisions include WHY
-- [ ] Examples where helpful
-- [ ] No unexplained jargon
-
-### Evolution
-- [ ] Timelessness score ≥ 7
-- [ ] At least 2 extension points
-- [ ] Dependencies abstracted
-- [ ] Composes with ecosystem
-
-### Registration
-- [ ] Added to \`registry.md\`
-- [ ] Updated \`CAPABILITIES.md\`
-- [ ] Updated skill count in \`CLAUDE.md\`
-
----
-
-## Commands
-
-| Command | Action |
-|---------|--------|
-| \`SkillCreator: {goal}\` | Full autonomous execution |
-| \`SkillCreator --plan-only {goal}\` | Generate specification only |
-| \`SkillCreator --iteration N\` | Resume from iteration N |
-| \`SkillCreator --quick {goal}\` | Reduced depth (not recommended) |
-
----
-
-## Configuration
-
-\`\`\`yaml
+```yaml
 SKILLCREATOR_CONFIG:
   mode: autonomous
   depth: maximum  # always
@@ -583,48 +545,9 @@ SKILLCREATOR_CONFIG:
   model:
     primary: claude-opus-4-5-20251101
     subagents: claude-opus-4-5-20251101
-\`\`\`
+```
 
----
-
-## Examples
-
-### Example 1: Simple Skill Request
-
-**Input:** "Create a skill to check TypeScript types"
-
-**Phase 1 Output (partial):**
-- First Principles: Core need is catching type errors before runtime
-- Inversion: Would fail if: slow, false positives, unclear output
-- Systems: Integrates with verification-runner, pre-commit hooks
-- Evolution: TypeScript evolving but type-checking fundamental (score: 8)
-
-**Phase 4 Result:**
-- Design Agent: APPROVED (patterns sound, phases logical)
-- Audience Agent: APPROVED (triggers natural, steps clear)
-- Evolution Agent: APPROVED (score 8, extensible to new TS features)
-- **Consensus: 3/3 APPROVED**
-
-### Example 2: Complex Skill Request
-
-**Input:** "Create a skill for automated code review"
-
-**Phase 1 Output (partial):**
-- First Principles: Need unbiased, consistent code quality feedback
-- Inversion: Fails if: noisy, misses real issues, too slow, not actionable
-- Systems: Must compose with codereview, testgen, verification-runner
-- Pareto: 80% value from: bugs, security, performance (not style nits)
-- Evolution: Code review is timeless; patterns evolve (score: 7)
-
-**Phase 4 Iteration 1:**
-- Design Agent: CHANGES_REQUIRED (phase 2 lacks verification)
-- Audience Agent: APPROVED
-- Evolution Agent: APPROVED
-- **Consensus: 2/3 → Iterate**
-
-**Phase 4 Iteration 2:**
-- All agents: APPROVED
-- **Consensus: 3/3 APPROVED**
+</details>
 
 ---
 
@@ -651,29 +574,31 @@ SKILLCREATOR_CONFIG:
 
 ## Extension Points
 
-1. **Additional Lenses:** Add new thinking models to \`references/multi-lens-framework.md\`
+1. **Additional Lenses:** Add new thinking models to `references/multi-lens-framework.md`
 2. **New Synthesis Agents:** Extend panel beyond 3 agents for specific domains
 3. **Custom Patterns:** Add architecture patterns to selection guide
-4. **Domain Templates:** Add domain-specific templates to \`assets/templates/\`
+4. **Domain Templates:** Add domain-specific templates to `assets/templates/`
 
 ---
 
 ## Changelog
 
-### v3.0.0 (Current)
+### v3.1.0 (Current)
+- Added progressive disclosure structure
+- Fixed frontmatter for packaging compatibility
+- Added validation & packaging section
+- Deep dive sections now collapsible
+
+### v3.0.0
 - Complete redesign as ultimate meta-skill
 - Added regression questioning loop
 - Added multi-lens analysis framework (11 models)
 - Added evolution/timelessness core lens
 - Added multi-agent synthesis panel
-- Fully autonomous execution
-- Maximum depth always
 
-### v2.0.0 (Previous)
+### v2.0.0
 - Pattern selection guide
 - Quality standards checklist
-- Match scoring for duplicates
 
-### v1.0.0 (Original)
+### v1.0.0
 - Basic skill structure
-- Directory layout

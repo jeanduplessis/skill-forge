@@ -2,7 +2,7 @@
 """
 triage_skill_request.py - Intelligent skill routing from any user input
 
-Part of the skillcreator skill (Phase 0: Skill Triage).
+Part of the skillforge skill (Phase 0: Skill Triage).
 
 Analyzes ANY user input (prompt, error, code, URL, question, request) and
 determines the best action:
@@ -85,7 +85,7 @@ class InputCategory:
 # Patterns for detecting input category
 EXPLICIT_CREATE_PATTERNS = [
     r'\b(?:create|build|make|design|develop)\s+(?:a\s+)?(?:new\s+)?skill\b',
-    r'\bskillcreator[:\s]',
+    r'\bskillforge[:\s]',
     r'\b(?:new|custom)\s+skill\s+(?:for|to)\b',
     r'\bultimate\s+skill\b',
 ]

@@ -1,8 +1,8 @@
-# SkillCreator v3.2
+# SkillForge v3.2
 
 The ultimate meta-skill for generating best-in-class Claude Code skills.
 
-![SkillCreator v3.2](assets/images/01-title.png)
+![SkillForge v3.2](assets/images/01-title.png)
 
 ## The Problem
 
@@ -14,7 +14,7 @@ The challenge with AI skills is the gap between a good idea and engineered quali
 
 **Quality is not tested at the end; it is built in at every phase.**
 
-SkillCreator implements this through a rigorous 4-phase architecture, ensuring comprehensive analysis, thorough specification, clean generation, and unanimous approval for every skill produced.
+SkillForge implements this through a rigorous 4-phase architecture, ensuring comprehensive analysis, thorough specification, clean generation, and unanimous approval for every skill produced.
 
 ![Four Phase Principle](assets/images/03-four-phase-principle.png)
 
@@ -22,10 +22,10 @@ SkillCreator implements this through a rigorous 4-phase architecture, ensuring c
 
 ```bash
 # Installation
-cp -r skillcreator ~/.claude/skills/
+cp -r skillforge ~/.claude/skills/
 
 # Usage - invoke with a simple goal
-SkillCreator: create a skill for automated code review
+SkillForge: create a skill for automated code review
 ```
 
 That's it. The system handles the entire 4-phase process autonomously.
@@ -68,7 +68,7 @@ Skills are designed for a multi-year lifespan. The Evolution/Timelessness Agent 
 
 ## What's New in v3.2
 
-SkillCreator 3.2 introduces a comprehensive script integration framework, enabling fully agentic skills.
+SkillForge 3.2 introduces a comprehensive script integration framework, enabling fully agentic skills.
 
 ![v3.2 Enhancements](assets/images/10-v32-enhancements.png)
 
@@ -79,7 +79,7 @@ SkillCreator 3.2 introduces a comprehensive script integration framework, enabli
 
 ## Core Principles
 
-The SkillCreator methodology is guided by three core principles:
+The SkillForge methodology is guided by three core principles:
 
 ![Core Principles](assets/images/11-core-principles.png)
 
@@ -96,7 +96,7 @@ A blueprint for agent-centric codebases:
 ![Directory Structure](assets/images/12-directory-structure.png)
 
 ```
-skillcreator/
+skillforge/
 ├── SKILL.md                          # Main skill definition
 ├── README.md                         # This file
 ├── LICENSE                           # MIT License
@@ -126,13 +126,13 @@ skillcreator/
 
 ```bash
 # Installation
-cp -r skillcreator ~/.claude/skills/
+cp -r skillforge ~/.claude/skills/
 ```
 
 **Usage Patterns:**
-- `SkillCreator: {goal}` - Full autonomous execution
+- `SkillForge: {goal}` - Full autonomous execution
 - `create skill for {purpose}` - Natural language activation
-- `skillcreator --plan-only` - Generates specification only
+- `skillforge --plan-only` - Generates specification only
 
 ## Automated Validation
 
@@ -153,11 +153,11 @@ python scripts/package_skill.py /path/to/skill/ ./dist
 
 ## Conclusion
 
-SkillCreator is more than a tool—it is a systematic methodology for quality.
+SkillForge is more than a tool—it is a systematic methodology for quality.
 
 ![Closing](assets/images/15-closing-methodology.png)
 
-By codifying expert analysis, rigorous specification, and multi-agent peer review into a fully autonomous system, SkillCreator provides a blueprint for building the next generation of robust, reliable, and evolution-aware AI skills.
+By codifying expert analysis, rigorous specification, and multi-agent peer review into a fully autonomous system, SkillForge provides a blueprint for building the next generation of robust, reliable, and evolution-aware AI skills.
 
 **It transforms skill creation from an art into an engineering discipline.**
 

@@ -1,5 +1,5 @@
 ---
-name: skillcreator
+name: skillforge
 description: "Intelligent skill router and creator. Analyzes ANY input to recommend existing skills, improve them, or create new ones. Uses deep iterative analysis with 11 thinking models, regression questioning, evolution lens, and multi-agent synthesis panel. Phase 0 triage ensures you never duplicate existing functionality."
 license: MIT
 metadata:
@@ -12,7 +12,7 @@ metadata:
   outputs: [SKILL.md, references/, scripts/, SKILL_SPEC.md, recommendations]
 ---
 
-# SkillCreator 4.0 - Intelligent Skill Router & Creator
+# SkillForge 4.0 - Intelligent Skill Router & Creator
 
 Analyzes ANY input to find, improve, or create the right skill.
 
@@ -20,12 +20,12 @@ Analyzes ANY input to find, improve, or create the right skill.
 
 ## Quick Start
 
-**Any input works.** SkillCreator will intelligently route to the right action:
+**Any input works.** SkillForge will intelligently route to the right action:
 
 ```
-# These all work - SkillCreator figures out what you need:
+# These all work - SkillForge figures out what you need:
 
-SkillCreator: create a skill for automated code review
+SkillForge: create a skill for automated code review
 → Creates new skill (after checking no duplicates exist)
 
 help me debug this TypeError
@@ -46,11 +46,11 @@ TypeError: Cannot read property 'map' of undefined
 ## Triggers
 
 ### Creation Triggers
-- `SkillCreator: {goal}` - Full autonomous skill creation
+- `SkillForge: {goal}` - Full autonomous skill creation
 - `create skill` - Natural language activation
 - `design skill for {purpose}` - Purpose-first creation
 - `ultimate skill` - Emphasize maximum quality
-- `skillcreator --plan-only` - Generate specification without execution
+- `skillforge --plan-only` - Generate specification without execution
 
 ### Routing Triggers (NEW in v4.0)
 - `{any input}` - Analyzes and routes automatically
@@ -127,17 +127,17 @@ Production-Ready Agentic Skill
 
 | Command | Action |
 |---------|--------|
-| `SkillCreator: {goal}` | Full autonomous execution |
-| `SkillCreator --plan-only {goal}` | Generate specification only |
-| `SkillCreator --quick {goal}` | Reduced depth (not recommended) |
-| `SkillCreator --triage {input}` | Run Phase 0 triage only |
-| `SkillCreator --improve {skill}` | Enter improvement mode for existing skill |
+| `SkillForge: {goal}` | Full autonomous execution |
+| `SkillForge --plan-only {goal}` | Generate specification only |
+| `SkillForge --quick {goal}` | Reduced depth (not recommended) |
+| `SkillForge --triage {input}` | Run Phase 0 triage only |
+| `SkillForge --improve {skill}` | Enter improvement mode for existing skill |
 
 ---
 
 ## Phase 0: Skill Triage (NEW in v4.0)
 
-Before creating anything, SkillCreator intelligently analyzes your input to determine the best action.
+Before creating anything, SkillForge intelligently analyzes your input to determine the best action.
 
 ### How It Works
 
